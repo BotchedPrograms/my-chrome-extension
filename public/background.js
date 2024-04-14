@@ -18,3 +18,17 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     console.log(Date.now(), "Selected text: ", selectedText);
   }
 });
+
+function handler(info, tab) {
+  // here you can inject a script inside the page to do what you want
+  chrome.tabs.executeScript(tab.id, {file: 'script.js', allFrames: true});
+}
+
+chrome.runtime.onInstalled.addListener(function() {
+  chrome.contextMenus.create({
+      "title": "Some title",
+      "contexts": ["all"],
+      "documentUrlPatterns": ["*://*/*"],
+      "onclick": handler
+  });
+});

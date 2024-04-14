@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <h1>Starter Extension</h1>
       {/* Render the SnippetList component with the snippets and event handlers */}
-      <Hello person="World" />
+      <Hello person="Alice" />
     </div>
   );
 }
